@@ -9,9 +9,10 @@ import {
 } from 'react-native';
 
 export default class Card extends React.Component {
-  // state = {
-  //   showTerm: false
-  // }
+  state = {
+    showTerm: false, 
+    starred: false
+  }
 
   /*
     Flips the showTerm flag in our state
@@ -36,25 +37,25 @@ export default class Card extends React.Component {
      //    </View>
      // </TouchableWithoutFeedback>
       
-      
-      <FlipCard
-        perspective={500}
-        friction={6}
-        flipHorizontal={true}
-        flipVertical={false}
-      >
-       {/* Face Side */}
-        <View style = {[styles.container]}>
-          <Text style={styles.cardTitle}>{"Definition"}</Text>
-          <Text style={styles.definitionText}>{this.props.cardData.definition}</Text>
-        </View>
-        {/* Back Side */}
+        <FlipCard
+          perspective={500}
+          friction={6}
+          flipHorizontal={true}
+          flipVertical={false}
+        >
+         {/* Face Side */}
           <View style = {[styles.container]}>
-          <Text style={styles.cardTitle}>{"Term"}</Text>
-          <Text style={styles.termText}>{this.props.cardData.term}</Text>
-        </View>
-      </FlipCard>
-
+            <Text style={styles.cardTitle}>{"Definition"}</Text>
+            <Text style={styles.subjectTitle}>{this.props.cardData.subject}</Text>
+            <Text style={styles.definitionText}>{this.props.cardData.definition}</Text>
+          </View>
+          {/* Back Side */}
+            <View style = {[styles.container]}>
+            <Text style={styles.cardTitle}>{"Term"}</Text>
+            <Text style={styles.subjectTitle}>{this.props.cardData.subject}</Text>
+            <Text style={styles.termText}>{this.props.cardData.term}</Text>
+          </View>
+        </FlipCard>
     );
     // Fill this out
   } 
@@ -80,6 +81,13 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 20,
     top: 20
+  },
+  subjectTitle: {
+    color: '#7f8c8d',
+    fontSize: 18,
+    position: 'absolute',
+    top: 20, 
+    right: 20
   },
   termText: {
     fontSize: 50,

@@ -11,7 +11,8 @@ import {
 export default class NewCardModal extends React.Component {
   state = {
     newTermInput: '',
-    newDefinitionInput: ''
+    newDefinitionInput: '', 
+    newSubjectInput: ''
   }
 
   render() {
@@ -40,6 +41,16 @@ export default class NewCardModal extends React.Component {
               });
             }}
           />
+           <TextInput 
+            placeholder='Subject'
+            style={styles.newTermInput} 
+            value={this.state.newSubjectInput} 
+            onChangeText={(text) => {
+              this.setState({
+                newSubjectInput: text
+              });
+            }}
+          />
 
           <TextInput 
             placeholder='New Definition'
@@ -57,13 +68,14 @@ export default class NewCardModal extends React.Component {
             style={styles.addCardButton}
             underlayColor='#19358A'
             onPress={() => {
-              const {newTermInput, newDefinitionInput} = this.state;
-              this.props.addCard(newTermInput, newDefinitionInput);
+              const {newTermInput, newDefinitionInput, newSubjectInput} = this.state;
+              this.props.addCard(newTermInput, newDefinitionInput, newSubjectInput);
 
               // Reset inputs
               this.setState({
                 newTermInput: '',
-                newDefinitionInput: ''
+                newDefinitionInput: '', 
+                newSubjectInput: ''
               })
             }}
           > 

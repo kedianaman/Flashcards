@@ -18,27 +18,43 @@ import Card from './Card';
 /*
   Default set of cards
 */
-const DEFAULT_CARDS = [
+const DEFAULT_CARDS = [ 
   {
-    term: "self-determinism",
-    definition: "doctrine that the actions of a self are determined by itself"
+    term: "algorithm", 
+    definition: "A list of steps to finish a task", 
+    subject: "Computer Science"
   }, 
   {
-    term: "underbreath", 
-    definition: "subdued voice; rumour"
+    term: "binary", 
+    definition: "A way of representing information using only two options. ", 
+    subject: "Computer Science"
   }, 
   {
-    term: "wyrd", 
-    definition: "the personification of fate or destiny"
+    term: "bug", 
+    definition: "An error in a program that prevents the program from running as expected. ", 
+    subject: "Computer Science"
   }, 
   {
-    term: "uranomancy", 
-    definition: "divination by studying the heavens"
+    term: "Acceleration", 
+    definition: "change in velocity over time", 
+    subject: "Physics"
   }, 
   {
-    term: "jugate", 
-    definition: "side by side; in pairs; overlapping"
-  }
+    term: "Velocity", 
+    definition: "change in displacement over time", 
+    subject: "Physics"
+  },
+  {
+    term: "Displacement", 
+    definition: "object's overall change in position", 
+    subject: "Physics"
+  },
+  {
+    term: "Force", 
+    definition: "mass times acceleration", 
+    subject: "Physics"
+  },
+
 ];
 
 class App extends Component {
@@ -63,11 +79,12 @@ class App extends Component {
     Called when user decides to add new card.
     Creates card object and adds it to our state
   */
-  _addCard = (_term, _definition) => {
+  _addCard = (_term, _definition, _subject) => {
     const cards = this.state.cards; 
     cards.push({
       term: _term,
-      definition: _definition
+      definition: _definition, 
+      subject: _subject
     });
 
     this.setState({
